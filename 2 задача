@@ -1,0 +1,21 @@
+def f(n): 
+    d=2
+    kd=1
+    mas=[]
+    while d*d<n:
+        if n%d==0:
+            kd+=n//d
+            kd+=d
+        d+=1
+    if d*d==n:
+        kd+=d
+    return kd
+k=0
+for i in range(100000,200000):
+    d=f(i)
+    if d>30:
+        if i%2!=0 and d%2==0:
+            k+=1
+        if i%2==0 and d%2!=0:
+            k+=1
+print(k)
