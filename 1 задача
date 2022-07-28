@@ -1,0 +1,30 @@
+def pr(n):
+    d=2
+    while d*d<n:
+        if n%d==0:
+            return False
+        d+=1
+    if d*d==n:
+        return False
+    return True
+def f(n): 
+    d=2
+    mas=[]
+    while d*d<n:
+        if n%d==0:
+            if pr(d)==True:
+                mas.append(d)
+            if pr(n//d)==True:
+                mas.append(n//d)
+        d+=1
+    if d*d==n:
+        mas.append(d)
+    return mas
+kmax=-10**6
+for i in range(0,500000,2):
+    d=f(i)
+    if len(d)>=2:
+     l=max(d)*min(d)
+     if l%3==2:
+        kmax=max(kmax,i)
+print(kmax)
